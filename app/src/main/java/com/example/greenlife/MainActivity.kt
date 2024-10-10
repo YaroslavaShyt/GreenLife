@@ -12,6 +12,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.greenlife.app.screens.home.HomeScreen
 import com.example.greenlife.ui.theme.GreenLifeTheme
 
 class MainActivity : ComponentActivity() {
@@ -20,14 +21,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             GreenLifeTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Column(
-
-                        modifier = Modifier.padding(innerPadding)
-                    ){
-
-                    }
-                }
+                HomeScreen()
             }
         }
     }

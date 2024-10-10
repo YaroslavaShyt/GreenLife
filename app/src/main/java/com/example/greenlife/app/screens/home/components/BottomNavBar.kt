@@ -11,6 +11,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.navigation.NavController
 
@@ -27,7 +28,10 @@ fun TabView(tabBarItems: List<TabBarItem>, navController: NavController) {
         mutableIntStateOf(0)
     }
 
-    NavigationBar {
+    NavigationBar (
+        containerColor = Color.White
+    ){
+
         tabBarItems.forEachIndexed { index, tabBarItem ->
             NavigationBarItem(
                 selected = selectedTabIndex == index,

@@ -25,7 +25,7 @@ val categories = listOf("Plants", "Flowers", "Herbs", "Trees")
 fun SearchTabContent() {
     val scrollState = rememberScrollState()
     Column(
-        modifier = Modifier.verticalScroll(scrollState)
+    //    modifier = Modifier.verticalScroll(scrollState)
     ) {
         Box(
             modifier = Modifier

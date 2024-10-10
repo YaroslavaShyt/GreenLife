@@ -13,14 +13,17 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.greenlife.app.screens.cart.CartScreen
 import com.example.greenlife.app.screens.home.components.AppBar
 import com.example.greenlife.app.screens.home.components.SearchTabContent
 import com.example.greenlife.app.screens.home.components.TabBarItem
 import com.example.greenlife.app.screens.home.components.TabView
+import com.example.greenlife.app.screens.shipping.ShippingAddressScreen
 import com.example.greenlife.ui.theme.GreenLifeTheme
 
 
@@ -38,25 +41,26 @@ fun HomeScreen() {
         badgeAmount = 7
     )
 
-
     val tabBarItems = listOf(homeTab, alertsTab)
-
     val navController = rememberNavController()
-
 
     Surface(
         modifier = Modifier.fillMaxSize(),
-        color = MaterialTheme.colorScheme.background
+        color = Color.White
     ) {
         Scaffold(
             topBar = { AppBar() },
-            bottomBar = { TabView(tabBarItems, navController) }) { innerPadding ->
+            bottomBar = { TabView(tabBarItems, navController) }
+        ) { innerPadding ->
             NavHost(
-                navController = navController, startDestination = homeTab.title,
-                modifier = Modifier.padding(innerPadding),
+                navController = navController,
+                startDestination = homeTab.title,
+                modifier = Modifier.padding(innerPadding)
             ) {
                 composable(homeTab.title) {
-                    SearchTabContent()
+                    CartScreen()
+                   // ShippingAddressScreen()
+                   // SearchTabContent()
                 }
                 composable(alertsTab.title) {
                     Text(alertsTab.title)
@@ -65,6 +69,7 @@ fun HomeScreen() {
         }
     }
 }
+
 
 
 @Preview(showBackground = true)
