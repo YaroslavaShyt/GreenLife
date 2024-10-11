@@ -18,6 +18,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.greenlife.ui.theme.Green
+import kotlinx.coroutines.launch
 
 @Composable
 fun AppBar() {
@@ -39,8 +40,13 @@ fun AppBar() {
             }
         },
         navigationIcon = {
-            IconButton(onClick = {}) {
-                Icon(Icons.Filled.Menu, contentDescription = "Menu")
+            IconButton(onClick = {
+                // TODO
+            }) {
+                Icon(
+                    imageVector = Icons.Default.Menu,
+                    contentDescription = "Menu"
+                )
             }
         },
         actions = {
