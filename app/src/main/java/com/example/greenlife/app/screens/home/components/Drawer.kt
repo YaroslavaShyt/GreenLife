@@ -1,5 +1,6 @@
 package com.example.greenlife.app.screens.home.components
 
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -29,9 +30,8 @@ import kotlinx.coroutines.launch
 
 data class NavigationItems(
     val title: String,
-    val selectedIcon: ImageVector,
-    val unselectedIcon: ImageVector,
-    val badgeCount: Int? = null
+    val isSelected: Boolean,
+    val interactionWidget: Unit
 )
 
 @Composable
@@ -43,25 +43,24 @@ fun Drawer(
 ) {
     val items = listOf(
         NavigationItems(
-            title = "Home",
-            selectedIcon = Icons.Filled.Home,
-            unselectedIcon = Icons.Outlined.Home
+            title = "Theme",
+            isSelected = false,
+            interactionWidget = Box{}
         ),
         NavigationItems(
             title = "Info",
-            selectedIcon = Icons.Filled.Info,
-            unselectedIcon = Icons.Outlined.Info
+            isSelected = false,
+            interactionWidget = Box{}
         ),
         NavigationItems(
             title = "Edit",
-            selectedIcon = Icons.Filled.Edit,
-            unselectedIcon = Icons.Outlined.Edit,
-            badgeCount = 105
+            isSelected = false,
+            interactionWidget = Box{}
         ),
         NavigationItems(
             title = "Settings",
-            selectedIcon = Icons.Filled.Settings,
-            unselectedIcon = Icons.Outlined.Settings
+            isSelected = false,
+            interactionWidget = Box{}
         )
     )
 
@@ -81,18 +80,9 @@ fun Drawer(
                                 drawerState.close()
                             }
                         },
-                        icon = {
-                            Icon(
-                                imageVector = if (index == selectedItemIndex) {
-                                    item.selectedIcon
-                                } else item.unselectedIcon,
-                                contentDescription = item.title
-                            )
-                        },
+
                         badge = {
-                            item.badgeCount?.let {
-                                Text(text = item.badgeCount.toString())
-                            }
+
                         },
                         modifier = Modifier
                             .padding(NavigationDrawerItemDefaults.ItemPadding)
